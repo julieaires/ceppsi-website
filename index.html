@@ -3,619 +3,1775 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CEPPSI — Clínica Multidisciplinar em São Luís | Psicologia e Saúde Integral</title>
-  <meta name="description" content="Cuidado psicológico e integral no Pátio Jardins (Altos do Calhau, São Luís - MA) e atendimento online. Psicologia Clínica, Avaliação Neuropsicológica, Psicopedagogia, Nutrição e Gerontologia." />
+  <title>CEPPSI — Clínica Multidisciplinar em São Luís</title>
+  <meta name="description" content="Centro de Psicologia, Nutrição e Gerontologia em São Luís - MA. Atendimento presencial no Pátio Jardins (Altos do Calhau) e Online." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sumana:wght@400;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    :root {
+      --navy: #13294B;
+      --navy-mid: #1D3B68;
+      --navy-soft: #EBF1F8;
+      --orange: #E86C24;
+      --orange-hover: #D35B15;
+      --orange-soft: #FFF1E8;
+      --bg: #F6F8FB;
+      --surface: #FFFFFF;
+      --card-neutral: #F1F4F8;
+      --text: #13294B;
+      --muted: #52627A;
+      --border-subtle: rgba(19, 41, 75, 0.08);
+      --radius-xl: 36px;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-shadow: none !important;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 400;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* RIGOR TIPOGRÁFICO ESTRITO: SUMANA PARA TÍTULOS E NÚMEROS */
+    h1, h2, h3, h4, .font-sumana {
+      font-family: 'Sumana', serif;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      text-wrap: balance;
+    }
+
+    p, a, button, input, select, textarea, label, span {
+      font-family: 'Work Sans', sans-serif;
+    }
+
+    p {
+      text-wrap: pretty;
+    }
+
+    /* CONTAINER PADRÃO (1480PX COM MARGENS PADRONIZADAS) */
+    .container {
+      width: 100%;
+      max-width: 1480px;
+      margin: 0 auto;
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+
+    /* ================= NAVBAR PÍLULA TRANSPARENTE AO ROLAR ================= */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: transparent;
+      padding-top: 22px;
+      pointer-events: none;
+    }
+
+    .nav-pill {
+      pointer-events: auto;
+      background: #FFFFFF;
+      border-radius: 999px;
+      padding: 12px 16px 12px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      border: 1px solid rgba(19, 41, 75, 0.06);
+    }
+
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      text-decoration: none;
+      color: var(--navy);
+      font-size: 0.94rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: color 0.2s ease;
+      padding: 6px 2px;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: var(--orange);
+      font-weight: 600;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* BOTÕES PADRONIZADOS */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--orange);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 999px;
+      padding: 13px 26px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary:hover {
+      background: var(--orange-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary-light {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.12);
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      padding: 13px 26px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-secondary-light:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-outline-navy {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #FFFFFF;
+      color: var(--navy);
+      border: 1px solid rgba(19, 41, 75, 0.18);
+      border-radius: 999px;
+      padding: 13px 28px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-outline-navy:hover {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #FFFFFF;
+    }
+
+    .mobile-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      background: var(--navy-soft);
+      color: var(--navy);
+      border: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .mobile-drawer {
+      display: none;
+      pointer-events: auto;
+      background: #FFFFFF;
+      border-radius: 24px;
+      margin-top: 10px;
+      padding: 20px;
+      flex-direction: column;
+      gap: 12px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .mobile-drawer.open {
+      display: flex;
+    }
+
+    .mobile-drawer a {
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: 500;
+      padding: 10px 12px;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    .mobile-drawer a:hover,
+    .mobile-drawer a.active {
+      background: var(--orange-soft);
+      color: var(--orange);
+      font-weight: 600;
+    }
+
+    /* ================= VIEWS / PÁGINAS SPA ================= */
+    .view-section {
+      display: none;
+    }
+
+    .view-section.active {
+      display: block;
+    }
+
+    /* ================= HERO PALCO AZUL DESDE O TOPO ABSOLUTO ================= */
+    .hero-wrapper {
+      position: relative;
+      padding-bottom: 48px;
+    }
+
+    .hero-blue-stage {
+      position: relative;
+      top: 0;
+      width: 100%;
+      background: var(--navy);
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: var(--radius-xl);
+      border-bottom-right-radius: var(--radius-xl);
+      padding-top: 152px;
+      padding-bottom: 260px;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .hero-organic-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0.14;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 840px;
+      margin: 0 auto;
+    }
+
+    .hero-content h1 {
+      color: #FFFFFF;
+      font-size: clamp(2.5rem, 4.6vw, 4.1rem);
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      color: rgba(255, 255, 255, 0.84);
+      font-size: clamp(1rem, 1.3vw, 1.15rem);
+      max-width: 620px;
+      margin: 0 auto 34px;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero-photo-overlap {
+      position: relative;
+      z-index: 5;
+      margin-top: -200px;
+    }
+
+    .hero-photo-frame {
+      width: 100%;
+      height: 520px;
+      border-radius: 28px;
+      overflow: hidden;
+      background: #DCE4EE;
+    }
+
+    .hero-photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 24%;
+      display: block;
+    }
+
+    /* ================= CABEÇALHO PADRÃO CENTRALIZADO DE SEÇÕES ================= */
+    .section-block {
+      padding: 88px 0;
+    }
+
+    .section-header-center {
+      text-align: center;
+      max-width: 740px;
+      margin: 0 auto 52px;
+    }
+
+    .eyebrow-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--orange);
+      display: inline-block;
+    }
+
+    .section-header-center h2 {
+      font-size: clamp(2rem, 3.2vw, 2.85rem);
+      margin-bottom: 14px;
+    }
+
+    .section-header-center p {
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    /* ================= 1. NOSSOS SERVIÇOS — BENTO GRID ASSIMÉTRICO ================= */
+    .services-section {
+      background: var(--surface);
+      padding: 96px 0;
+    }
+
+    .services-bento-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr 1.25fr 1fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .bento-stack-col {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .bento-card {
+      background: var(--card-neutral);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 410px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid transparent;
+      transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .bento-card:hover {
+      transform: translateY(-4px);
+      background: #E9EEF5;
+      border-color: rgba(19, 41, 75, 0.1);
+    }
+
+    .bento-card.horizontal-card {
+      min-height: 195px;
+      padding: 28px;
+    }
+
+    .bento-card.featured-card {
+      background: linear-gradient(180deg, #FFF5EE 0%, #FDE8DA 100%);
+      border: 1px solid rgba(232, 108, 36, 0.16);
+    }
+
+    .bento-card.featured-card:hover {
+      background: linear-gradient(180deg, #FFF1E6 0%, #FCDEC9 100%);
+      border-color: rgba(232, 108, 36, 0.35);
+    }
+
+    .bento-card h3 {
+      font-size: 1.48rem;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .bento-featured-media {
+      width: 100%;
+      height: 165px;
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 14px 0;
+    }
+
+    .bento-featured-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .bento-card p {
+      font-size: 0.94rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .bento-featured-footer {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .bento-action-circle {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: #FFFFFF;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .bento-card:hover .bento-action-circle {
+      background: var(--orange-hover);
+      transform: scale(1.06);
+    }
+
+    /* ================= 2. NOSSA EQUIPE SUCINTA NA HOME (AVATARES) ================= */
+    .team-home-section {
+      padding: 96px 0;
+      background: var(--bg);
+      text-align: center;
+    }
+
+    .team-avatars-row {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 32px;
+      margin-bottom: 44px;
+    }
+
+    .avatar-item {
+      width: 152px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.22s ease;
+    }
+
+    .avatar-item:hover {
+      transform: translateY(-4px);
+    }
+
+    .avatar-ring {
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      padding: 4px;
+      background: #FFFFFF;
+      border: 2px solid rgba(19, 41, 75, 0.1);
+      margin-bottom: 14px;
+      transition: border-color 0.22s ease;
+    }
+
+    .avatar-item:hover .avatar-ring {
+      border-color: var(--orange);
+    }
+
+    .avatar-ring img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .avatar-name {
+      font-family: 'Sumana', serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: 4px;
+    }
+
+    .avatar-role {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    /* ================= 3. DIFERENCIAIS / COMO FUNCIONA (BLOCO AZUL) ================= */
+    .pillars-navy-section {
+      background: var(--navy);
+      color: #FFFFFF;
+      padding: 96px 0;
+    }
+
+    .pillars-navy-section .eyebrow-tag {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .pillars-navy-section h2 {
+      color: #FFFFFF;
+    }
+
+    .pillars-navy-section .section-header-center p {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .pillar-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      text-align: center;
+    }
+
+    .pillar-num {
+      display: inline-block;
+      font-family: 'Sumana', serif;
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+
+    .pillar-card h3 {
+      color: #FFFFFF;
+      font-size: 1.45rem;
+      margin-bottom: 12px;
+    }
+
+    .pillar-card p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.95rem;
+    }
+
+    /* ================= 4. UNIDADE CEPPSI JARDINS (EXCLUSIVA) ================= */
+    .unit-section {
+      padding: 96px 0;
+      background: var(--surface);
+    }
+
+    .unit-card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      background: var(--bg);
+      border-radius: var(--radius-xl);
+      padding: 36px;
+      align-items: center;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .unit-info {
+      text-align: left;
+      padding: 12px;
+    }
+
+    .unit-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--orange-soft);
+      color: var(--orange);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    .unit-info h3 {
+      font-size: 2rem;
+      margin-bottom: 14px;
+    }
+
+    .unit-address {
+      font-size: 1.02rem;
+      color: var(--navy);
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .unit-details {
+      font-size: 0.94rem;
+      color: var(--muted);
+      margin-bottom: 26px;
+    }
+
+    .unit-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .unit-map-box {
+      width: 100%;
+      height: 100%;
+      min-height: 360px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: #E2E8F0;
+      position: relative;
+    }
+
+    .unit-map-box iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 360px;
+      border: 0;
+      display: block;
+    }
+
+    /* ================= 5. BLOG & ARTIGOS ================= */
+    .blog-section {
+      padding: 96px 0;
+      background: var(--bg);
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .blog-card {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border-subtle);
+      transition: transform 0.25s ease;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .blog-thumb {
+      height: 210px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .blog-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .blog-body {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      text-align: center;
+    }
+
+    .blog-cat {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--orange);
+      margin-bottom: 8px;
+    }
+
+    .blog-body h3 {
+      font-size: 1.38rem;
+      margin-bottom: 12px;
+    }
+
+    .blog-body p {
+      font-size: 0.93rem;
+      color: var(--muted);
+      margin-bottom: 22px;
+      flex: 1;
+    }
+
+    .blog-read-btn {
+      background: none;
+      border: none;
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 0.92rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: color 0.2s ease;
+    }
+
+    .blog-read-btn:hover {
+      color: var(--orange);
+    }
+
+    /* ================= 6. CTA FINAL ================= */
+    .cta-final-section {
+      padding: 40px 0 96px;
+      background: var(--bg);
+    }
+
+    .cta-final-box {
+      background: var(--navy);
+      border-radius: var(--radius-xl);
+      padding: 68px 32px;
+      text-align: center;
+      color: #FFFFFF;
+    }
+
+    .cta-final-box h2 {
+      color: #FFFFFF;
+      font-size: clamp(2rem, 3.4vw, 2.9rem);
+      margin-bottom: 16px;
+    }
+
+    .cta-final-box p {
+      color: rgba(255, 255, 255, 0.82);
+      max-width: 600px;
+      margin: 0 auto 32px;
+      font-size: 1.05rem;
+    }
+
+    /* ================= SUBPÁGINAS: SOBRE & EQUIPE DETALHADA ================= */
+    .subpage-hero {
+      background: var(--navy);
+      color: #FFFFFF;
+      padding: 156px 0 84px;
+      border-bottom-left-radius: var(--radius-xl);
+      border-bottom-right-radius: var(--radius-xl);
+      text-align: center;
+    }
+
+    .subpage-hero h1 {
+      color: #FFFFFF;
+      font-size: clamp(2.3rem, 4vw, 3.4rem);
+      margin-bottom: 16px;
+    }
+
+    .subpage-hero p {
+      color: rgba(255, 255, 255, 0.84);
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: 1.08rem;
+    }
+
+    /* PÁGINA EQUIPE COMPLETA */
+    .team-full-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .pro-full-card {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pro-full-photo {
+      width: 100%;
+      height: 310px;
+      overflow: hidden;
+      background: #E2E8F0;
+    }
+
+    .pro-full-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .pro-full-body {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .pro-crp {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--orange);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .pro-full-body h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .pro-bio {
+      font-size: 0.93rem;
+      color: var(--muted);
+      margin-bottom: 18px;
+      flex: 1;
+    }
+
+    .pro-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .pro-tag {
+      background: var(--navy-soft);
+      color: var(--navy);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+
+    /* PÁGINA SOBRE */
+    .about-story-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 44px;
+      align-items: center;
+      margin-bottom: 72px;
+    }
+
+    .about-story-text h2 {
+      font-size: 2.3rem;
+      margin-bottom: 18px;
+    }
+
+    .about-story-text p {
+      color: var(--muted);
+      margin-bottom: 16px;
+      font-size: 1.02rem;
+    }
+
+    .about-story-img {
+      height: 400px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .about-story-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .mv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 72px;
+    }
+
+    .mv-card {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .mv-card h3 {
+      font-size: 1.65rem;
+      margin-bottom: 12px;
+    }
+
+    .mv-card p {
+      color: var(--muted);
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .value-card {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .value-card h4 {
+      font-size: 1.32rem;
+      margin-bottom: 8px;
+      color: var(--navy);
+    }
+
+    .value-card p {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: var(--navy);
+      color: rgba(255, 255, 255, 0.8);
+      padding: 72px 0 36px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 36px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .footer-col h4 {
+      color: #FFFFFF;
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+    }
+
+    .footer-col p,
+    .footer-col a {
+      display: block;
+      color: rgba(255, 255, 255, 0.78);
+      text-decoration: none;
+      font-size: 0.92rem;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .footer-col a:hover {
+      color: var(--orange);
+    }
+
+    .footer-bottom {
+      padding-top: 26px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.86rem;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    /* ================= MODAIS (WHATSAPP E BLOG) ================= */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(19, 41, 75, 0.62);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-lg);
+      max-width: 520px;
+      width: 100%;
+      padding: 36px;
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal-card.article-wide {
+      max-width: 720px;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--card-neutral);
+      border: none;
+      font-size: 1.25rem;
+      color: var(--navy);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(19, 41, 75, 0.16);
+      font-size: 0.95rem;
+      color: var(--navy);
+      background: #FFFFFF;
+    }
+
+    /* ================= RESPONSIVIDADE ================= */
+    @media (max-width: 1180px) {
+      .services-bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .team-full-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 920px) {
+      .nav-menu {
+        display: none;
+      }
+      .mobile-toggle {
+        display: inline-flex;
+      }
+      .pillars-grid,
+      .blog-grid,
+      .unit-card-grid,
+      .about-story-grid,
+      .mv-grid,
+      .values-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-photo-frame {
+        height: 360px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      .services-bento-grid,
+      .team-full-grid {
+        grid-template-columns: 1fr;
+      }
+      .bento-card {
+        min-height: auto;
+      }
+      .nav-pill {
+        padding: 10px 14px 10px 20px;
+      }
+      .nav-pill .btn-primary {
+        padding: 10px 16px;
+        font-size: 0.84rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
   <!-- NAVBAR PÍLULA TRANSPARENTE AO ROLAR -->
   <header class="site-header">
     <div class="container">
-      <nav class="nav-pill" aria-label="Navegação principal">
-        <a class="brand-link" onclick="showView('home')" aria-label="CEPPSI Início">
-          <!-- Logotipo Oficial CEPPSI em SVG Inline -->
-          <svg width="42" height="36" viewBox="0 0 84 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M26 8C14 8 7 16 7 28C7 33 5 36 3 39C2 40.5 3 42 5 42H8V50C8 54 11 56 15 56H22V66C26 63 31 58 31 50V14C31 10 29 8 26 8Z" fill="#E86C24"/>
-            <path d="M58 8C70 8 77 16 77 28C77 33 79 36 81 39C82 40.5 81 42 79 42H76V50C76 54 73 56 69 56H62V66C58 63 53 58 53 50V14C53 10 55 8 58 8Z" fill="#13294B"/>
-            <path d="M42 12V64M33 64H51M36 12H48M27 22C27 34 33 41 42 41C51 41 57 34 57 22" stroke="#E86C24" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <nav class="nav-pill" aria-label="Navegação Principal">
+        <a class="brand-link" onclick="navigateHome('topo')" aria-label="CEPPSI Início">
+          <svg width="164" height="36" viewBox="0 0 230 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 7C11.5 7 7 11.8 7 18.2C7 22.8 9.2 26.2 11.5 29.4C13.2 31.8 14 34.4 14 38V43H22V14C22 10.1 20.4 7 18 7Z" fill="#E86C24"/>
+            <path d="M36 7C42.5 7 47 11.8 47 18.2C47 22.8 44.8 26.2 42.5 29.4C40.8 31.8 40 34.4 40 38V43H32V14C32 10.1 33.6 7 36 7Z" fill="#13294B"/>
+            <path d="M27 8V43M20 16C20 21.5 23 24.5 27 24.5C31 24.5 34 21.5 34 16" stroke="#E86C24" stroke-width="3.2" stroke-linecap="round"/>
+            <text x="58" y="34" fill="#13294B" font-family="'Sumana', serif" font-weight="700" font-size="29" letter-spacing="1.5">CEPPSI</text>
           </svg>
-          <span class="brand-wordmark">CEPPSI</span>
         </a>
 
-        <div class="nav-links">
-          <button class="nav-link active" data-nav="home" onclick="showView('home')">Início</button>
-          <button class="nav-link" data-nav="sobre" onclick="showView('sobre')">Sobre</button>
-          <button class="nav-link" data-section="secao-servicos" onclick="showView('home', 'secao-servicos')">Serviços</button>
-          <button class="nav-link" data-nav="equipe" onclick="showView('equipe')">Equipe</button>
-          <button class="nav-link" data-section="secao-blog" onclick="showView('home', 'secao-blog')">Blog</button>
-        </div>
+        <ul class="nav-menu">
+          <li><a id="nav-home" class="active" onclick="navigateHome('topo')">Início</a></li>
+          <li><a id="nav-sobre" onclick="switchView('sobre')">Sobre</a></li>
+          <li><a id="nav-servicos" onclick="navigateHome('secao-servicos')">Serviços</a></li>
+          <li><a id="nav-equipe" onclick="switchView('equipe')">Equipe</a></li>
+          <li><a id="nav-blog" onclick="navigateHome('secao-blog')">Blog</a></li>
+        </ul>
 
         <div class="nav-actions">
-          <button class="btn-primary" onclick="openBookingModal()">Agendar consulta</button>
-          <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Abrir menu">☰</button>
+          <button class="btn-primary" onclick="openBooking('Consulta Geral')">Agendar consulta</button>
+          <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Abrir menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+              <line x1="3" y1="7" x2="21" y2="7"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="17" x2="21" y2="17"></line>
+            </svg>
+          </button>
         </div>
       </nav>
 
-      <!-- Menu Mobile -->
-      <div class="mobile-drawer" id="mobileDrawer">
-        <button class="nav-link" onclick="showView('home')">Início</button>
-        <button class="nav-link" onclick="showView('sobre')">Sobre a CEPPSI</button>
-        <button class="nav-link" onclick="showView('home', 'secao-servicos')">Nossos Serviços</button>
-        <button class="nav-link" onclick="showView('equipe')">Nossa Equipe</button>
-        <button class="nav-link" onclick="showView('home', 'secao-unidade')">Unidade Pátio Jardins</button>
-        <button class="nav-link" onclick="showView('home', 'secao-blog')">Blog &amp; Artigos</button>
-        <button class="btn-primary" style="width:100%;" onclick="openBookingModal()">Agendar consulta</button>
+      <div id="mobileDrawer" class="mobile-drawer">
+        <a onclick="navigateHome('topo'); closeMobileMenu();">Início</a>
+        <a onclick="switchView('sobre'); closeMobileMenu();">Sobre</a>
+        <a onclick="navigateHome('secao-servicos'); closeMobileMenu();">Serviços</a>
+        <a onclick="switchView('equipe'); closeMobileMenu();">Equipe Completa</a>
+        <a onclick="navigateHome('secao-blog'); closeMobileMenu();">Blog</a>
+        <a onclick="navigateHome('secao-unidade'); closeMobileMenu();">Unidade Pátio Jardins</a>
       </div>
     </div>
   </header>
 
-  <!-- ======================================================================
-       VIEW 1: PÁGINA INICIAL (HOME)
-       ====================================================================== -->
-  <main id="view-home" class="view-section active">
+  <!-- ==================== VIEW 1: HOME ==================== -->
+  <div id="view-home" class="view-section active">
 
-    <!-- 1. HERO CENTRALIZADO -->
-    <section class="hero-wrapper">
+    <!-- HERO PALCO AZUL DESDE O TOPO ABSOLUTO -->
+    <section id="topo" class="hero-wrapper">
       <div class="hero-blue-stage">
-        <div class="hero-curve-left"></div>
-        <div class="hero-curve-right"></div>
+        <svg class="hero-organic-svg" viewBox="0 0 1440 640" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <circle cx="160" cy="140" r="260" stroke="#FFFFFF" stroke-width="1.5"/>
+          <circle cx="1290" cy="480" r="320" stroke="#E86C24" stroke-width="1.5"/>
+          <path d="M-40 520C280 410 560 610 920 490C1180 405 1340 460 1500 510" stroke="#FFFFFF" stroke-width="1.2"/>
+        </svg>
+
         <div class="container">
           <div class="hero-content">
-            <h1 class="hero-title">Cuidado psicológico e integral que <span>transforma vidas</span></h1>
-            <p class="hero-subtitle">Psicologia, Neuropsicologia, Psicopedagogia, Nutrição e Gerontologia no Pátio Jardins, em São Luís, e em atendimento online.</p>
-            <div class="hero-cta-group">
-              <button class="btn-primary" onclick="openBookingModal()">Agendar minha consulta →</button>
-              <button class="btn-secondary-dark" onclick="showView('home', 'secao-unidade')">Conhecer a unidade</button>
+            <h1>Cuidado psicológico e integral que <span style="color:#E86C24;">transforma vidas</span></h1>
+            <p>Atendimento multidisciplinar em Psicologia, Neuropsicologia, Psicopedagogia, Nutrição e Gerontologia no Pátio Jardins, em São Luís, e online.</p>
+            <div class="hero-cta-row">
+              <button class="btn-primary" onclick="openBooking('Primeira Consulta')">Agendar minha consulta →</button>
+              <a class="btn-secondary-light" onclick="navigateHome('secao-unidade')">Conhecer a unidade</a>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="container hero-overlap-media">
+      <div class="container hero-photo-overlap">
         <div class="hero-photo-frame">
-          <img src="assets/hero/hero-atendimento.svg" alt="Atendimento psicológico acolhedor na CEPPSI em São Luís" />
+          <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=1600&q=85" alt="Atendimento acolhedor na clínica CEPPSI em São Luís">
         </div>
       </div>
     </section>
 
-    <!-- 2. NOSSOS SERVIÇOS (BENTO GRID ASSIMÉTRICO) -->
-    <section id="secao-servicos" class="page-section">
+    <!-- 1. SEÇÃO: NOSSOS SERVIÇOS (BENTO GRID ASSIMÉTRICO) -->
+    <section id="secao-servicos" class="services-section">
       <div class="container">
-        <div class="section-head">
-          <span class="eyebrow"><span class="eyebrow-dot"></span> Nossos Serviços</span>
-          <h2>Cuidado especializado para cada momento da sua vida</h2>
-          <p>Atendimento ético, humanizado e integrado para crianças, adolescentes, adultos e idosos.</p>
+        <div class="section-header-center">
+          <div class="eyebrow-tag"><span class="eyebrow-dot"></span> NOSSOS SERVIÇOS</div>
+          <h2>Cuidado especializado para cada etapa da sua vida</h2>
+          <p>Soluções integradas em saúde emocional, cognitiva e nutricional em um só lugar.</p>
         </div>
 
-        <div class="services-bento">
-          <!-- Card Vertical Esquerdo -->
-          <article class="bento-card bento-tall-left" onclick="openBookingModal('Psicologia Clínica')">
-            <div>
-              <h3>Psicologia Clínica</h3>
-              <p>Psicoterapia individual para adultos, adolescentes e crianças com escuta acolhedora em Logoterapia e Psicanálise.</p>
-            </div>
-            <p style="font-weight:600; color:var(--orange); font-size:0.88rem; margin-top:24px;">Agendar sessão →</p>
+        <div class="services-bento-grid">
+          <!-- Coluna 1: Card Vertical Alto -->
+          <article class="bento-card" onclick="openBooking('Psicologia Clínica')">
+            <h3>Psicologia Clínica</h3>
+            <p>Atendimento individual para adultos, adolescentes e crianças com escuta acolhedora, ética e sigilosa.</p>
           </article>
 
-          <!-- Card Central Destacado -->
-          <article class="bento-card bento-featured" onclick="openBookingModal('Avaliação Neuropsicológica')">
+          <!-- Coluna 2: Card Vertical Alto em Destaque com Imagem e Botão Circular Laranja -->
+          <article class="bento-card featured-card" onclick="openBooking('Avaliação Neuropsicológica')">
             <div>
               <h3>Avaliação Neuropsicológica</h3>
-              <img class="bento-featured-img" src="assets/servicos/avaliacao-neuropsicologica.svg" alt="Avaliação Neuropsicológica CEPPSI" />
+              <div class="bento-featured-media">
+                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80" alt="Avaliação Neuropsicológica CEPPSI">
+              </div>
             </div>
             <div class="bento-featured-footer">
-              <p>Investigação detalhada de atenção, memória e funções executivas com laudo técnico completo.</p>
-              <button class="bento-circle-btn" aria-label="Agendar Avaliação Neuropsicológica">›</button>
+              <p>Investigação detalhada das funções cognitivas, atenção, memória e aprendizagem.</p>
+              <span class="bento-action-circle" aria-hidden="true">›</span>
             </div>
           </article>
 
-          <!-- Card Horizontal Superior -->
-          <article class="bento-card bento-wide-top" onclick="openBookingModal('Psicopedagogia')">
-            <h3>Psicopedagogia</h3>
-            <p>Acompanhamento especializado nos processos de aprendizagem, dificuldades escolares e desenvolvimento cognitivo infantil e juvenil.</p>
-          </article>
+          <!-- Coluna 3: Dois Cards Horizontais Empilhados -->
+          <div class="bento-stack-col">
+            <article class="bento-card horizontal-card" onclick="openBooking('Psicopedagogia')">
+              <h3>Psicopedagogia</h3>
+              <p>Suporte especializado para dificuldades escolares e desenvolvimento cognitivo infantojuvenil.</p>
+            </article>
 
-          <!-- Card Horizontal Inferior -->
-          <article class="bento-card bento-wide-bottom" onclick="openBookingModal('Nutrição Clínica')">
-            <h3>Nutrição Clínica</h3>
-            <p>Orientação nutricional individualizada e comportamental para promover saúde física, equilíbrio emocional e qualidade de vida.</p>
-          </article>
+            <article class="bento-card horizontal-card" onclick="openBooking('Nutrição Clínica')">
+              <h3>Nutrição Clínica</h3>
+              <p>Orientação alimentar individualizada integrada à saúde física, rotina e equilíbrio emocional.</p>
+            </article>
+          </div>
 
-          <!-- Card Vertical Direito -->
-          <article class="bento-card bento-tall-right" onclick="openBookingModal('Gerontologia')">
-            <div>
-              <h3>Gerontologia</h3>
-              <p>Cuidado integral e preventivo voltado ao envelhecimento saudável, autonomia e suporte emocional ao idoso e à família.</p>
-            </div>
-            <p style="font-weight:600; color:var(--orange); font-size:0.88rem; margin-top:24px;">Agendar consulta →</p>
+          <!-- Coluna 4: Card Vertical Alto -->
+          <article class="bento-card" onclick="openBooking('Gerontologia')">
+            <h3>Gerontologia</h3>
+            <p>Cuidado integral, preservação da autonomia e qualidade de vida na maturidade e no envelhecimento.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- 3. NOSSA EQUIPE (VERSÃO SUCINTA NA HOME) -->
-    <section id="secao-equipe" class="page-section" style="padding-top: 24px;">
+    <!-- 2. SEÇÃO SUCINTA: NOSSA EQUIPE (APENAS AVATARES + CTA PARA PÁGINA DEDICADA) -->
+    <section id="secao-equipe-home" class="team-home-section">
       <div class="container">
-        <div class="section-head">
-          <span class="eyebrow"><span class="eyebrow-dot"></span> Corpo Clínico</span>
-          <h2>Profissionais dedicados à sua saúde</h2>
-          <p>Uma equipe multidisciplinar qualificada, pronta para oferecer uma escuta ética e individualizada.</p>
+        <div class="section-header-center">
+          <div class="eyebrow-tag"><span class="eyebrow-dot"></span> NOSSA EQUIPE</div>
+          <h2>Especialistas dedicados ao seu acolhimento</h2>
+          <p>Profissionais qualificados com atuação ética e humanizada para acompanhar você e sua família.</p>
         </div>
 
         <div class="team-avatars-row">
-          <div class="avatar-item" onclick="showView('equipe')">
-            <div class="avatar-circle">
-              <img src="assets/equipe/thiago-linhares.svg" alt="Thiago Linhares" />
+          <div class="avatar-item" onclick="switchView('equipe')">
+            <div class="avatar-ring">
+              <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=400&q=80" alt="Thiago Linhares">
             </div>
-            <h3>Thiago Linhares</h3>
-            <span>Psicologia Clínica</span>
+            <div class="avatar-name">Thiago Linhares</div>
+            <div class="avatar-role">Neuropsicólogo</div>
           </div>
 
-          <div class="avatar-item" onclick="showView('equipe')">
-            <div class="avatar-circle">
-              <img src="assets/equipe/rogener-almeida.svg" alt="Rogener Almeida" />
+          <div class="avatar-item" onclick="switchView('equipe')">
+            <div class="avatar-ring">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Rogener Almeida">
             </div>
-            <h3>Rogener Almeida</h3>
-            <span>Psicologia &amp; Logoterapia</span>
+            <div class="avatar-name">Rogener Almeida</div>
+            <div class="avatar-role">Psicóloga e Logoterapeuta</div>
           </div>
 
-          <div class="avatar-item" onclick="showView('equipe')">
-            <div class="avatar-circle">
-              <img src="assets/equipe/marcelo-torres.svg" alt="Marcelo Torres" />
+          <div class="avatar-item" onclick="switchView('equipe')">
+            <div class="avatar-ring">
+              <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=400&q=80" alt="Marcelo Torres">
             </div>
-            <h3>Marcelo Torres</h3>
-            <span>Psicologia &amp; Psicanálise</span>
+            <div class="avatar-name">Marcelo Torres</div>
+            <div class="avatar-role">Psicólogo e Gerontólogo</div>
           </div>
 
-          <div class="avatar-item" onclick="showView('equipe')">
-            <div class="avatar-circle">
-              <img src="assets/equipe/alessandra-bates.svg" alt="Alessandra Cristine Filgueiras Bates" />
+          <div class="avatar-item" onclick="switchView('equipe')">
+            <div class="avatar-ring">
+              <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&q=80" alt="Alessandra Cristine">
             </div>
-            <h3>Alessandra Bates</h3>
-            <span>Neuropsicologia</span>
+            <div class="avatar-name">Alessandra Cristine</div>
+            <div class="avatar-role">Psicopedagoga</div>
           </div>
 
-          <div class="avatar-item" onclick="showView('equipe')">
-            <div class="avatar-circle">
-              <img src="assets/equipe/lucilene-nogueira.svg" alt="Lucilene Nogueira" />
+          <div class="avatar-item" onclick="switchView('equipe')">
+            <div class="avatar-ring">
+              <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=400&q=80" alt="Lucilene Nogueira">
             </div>
-            <h3>Lucilene Nogueira</h3>
-            <span>Psicopedagogia</span>
+            <div class="avatar-name">Lucilene Nogueira</div>
+            <div class="avatar-role">Psicóloga Clínica</div>
           </div>
 
-          <div class="avatar-item" onclick="showView('equipe')">
-            <div class="avatar-circle">
-              <img src="assets/equipe/juliana-vidal.svg" alt="Juliana Vidal" />
+          <div class="avatar-item" onclick="switchView('equipe')">
+            <div class="avatar-ring">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80" alt="Juliana Vidal">
             </div>
-            <h3>Juliana Vidal</h3>
-            <span>Nutrição Clínica</span>
+            <div class="avatar-name">Juliana Vidal</div>
+            <div class="avatar-role">Psicóloga e Psicopedagoga</div>
           </div>
 
-          <div class="avatar-item" onclick="showView('equipe')">
-            <div class="avatar-circle">
-              <img src="assets/equipe/nucleo-gerontologia.svg" alt="Especialista Gerontologia CEPPSI" />
+          <div class="avatar-item" onclick="switchView('equipe')">
+            <div class="avatar-ring">
+              <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80" alt="Camila Sousa">
             </div>
-            <h3>Equipe Sênior</h3>
-            <span>Gerontologia</span>
+            <div class="avatar-name">Camila Sousa</div>
+            <div class="avatar-role">Nutricionista Clínica</div>
           </div>
         </div>
 
-        <div class="centered-cta">
-          <button class="btn-outline" onclick="showView('equipe')">Conhecer toda a equipe →</button>
-        </div>
+        <button class="btn-outline-navy" onclick="switchView('equipe')">Conhecer toda a equipe →</button>
       </div>
     </section>
 
-    <!-- 4. DIFERENCIAIS / COMO FUNCIONA (BLOCO AZUL INSTITUCIONAL) -->
-    <section class="pillars-band">
+    <!-- 3. DIFERENCIAIS / COMO FUNCIONA (BLOCO AZUL #13294B) -->
+    <section class="pillars-navy-section">
       <div class="container">
-        <div class="section-head">
-          <span class="eyebrow"><span class="eyebrow-dot"></span> Como Funciona</span>
-          <h2>Acolhimento simples, ético e sem burocracia</h2>
-          <p>Do primeiro contato pelo WhatsApp ao acompanhamento contínuo, cada etapa foi pensada para o seu bem-estar.</p>
+        <div class="section-header-center">
+          <div class="eyebrow-tag"><span class="eyebrow-dot"></span> COMO FUNCIONA</div>
+          <h2>Um processo pensado para sua tranquilidade</h2>
+          <p>Desde o primeiro contato até o acompanhamento contínuo, priorizamos conforto, ética e clareza.</p>
         </div>
 
         <div class="pillars-grid">
           <div class="pillar-card">
-            <span class="pillar-number">01</span>
-            <h3>Escuta inicial individualizada</h3>
-            <p>Entendemos a sua demanda logo no primeiro contato para direcionar você ao especialista mais adequado.</p>
+            <span class="pillar-num">01</span>
+            <h3>Escuta inicial</h3>
+            <p>Entendemos sua necessidade pelo WhatsApp e indicamos o especialista mais adequado para o seu momento.</p>
           </div>
 
           <div class="pillar-card">
-            <span class="pillar-number">02</span>
-            <h3>Presencial no Pátio Jardins ou Online</h3>
-            <p>Consultórios climatizados e reservados em São Luís ou teleatendimento seguro para onde você estiver.</p>
+            <span class="pillar-num">02</span>
+            <h3>Presencial ou Online</h3>
+            <p>Consultas no Pátio Jardins (Altos do Calhau) com salas reservadas ou teleatendimento seguro de onde estiver.</p>
           </div>
 
           <div class="pillar-card">
-            <span class="pillar-number">03</span>
-            <h3>Sigilo ético e visão integral</h3>
-            <p>Respeito absoluto à confidencialidade e integração entre psicologia, neuropsicologia, nutrição e gerontologia.</p>
+            <span class="pillar-num">03</span>
+            <h3>Sigilo ético</h3>
+            <p>Atendimento pautado pelo rigor profissional, confidencialidade absoluta e planos terapêuticos individualizados.</p>
           </div>
-        </div>
-
-        <div class="centered-cta" style="margin-top: 44px;">
-          <button class="btn-primary" onclick="openBookingModal()">Iniciar meu agendamento →</button>
         </div>
       </div>
     </section>
 
-    <!-- 5. UNIDADE CEPPSI JARDINS (INTEGRADA NA HOME) -->
-    <section id="secao-unidade" class="page-section">
+    <!-- 4. UNIDADE CEPPSI JARDINS (EXCLUSIVA) -->
+    <section id="secao-unidade" class="unit-section">
       <div class="container">
-        <div class="section-head">
-          <span class="eyebrow"><span class="eyebrow-dot"></span> Nossa Unidade</span>
-          <h2>CEPPSI Jardins — Altos do Calhau</h2>
-          <p>Localização estratégica em São Luís com fácil acesso, estacionamento e ambientes projetados para sua privacidade.</p>
+        <div class="section-header-center">
+          <div class="eyebrow-tag"><span class="eyebrow-dot"></span> NOSSA UNIDADE</div>
+          <h2>Estrutura acolhedora no Pátio Jardins</h2>
+          <p>Localização estratégica nos Altos do Calhau, com fácil acesso, estacionamento e total privacidade.</p>
         </div>
 
-        <div class="unit-card">
+        <div class="unit-card-grid">
           <div class="unit-info">
-            <span class="unit-badge">Atendimento Presencial &amp; Online</span>
-            <h3>Condomínio Pátio Jardins</h3>
-            <ul class="unit-details-list">
-              <li><strong>Endereço:</strong> Av. Jerônimo de Albuquerque, 25 — Pátio Jardins, Sala 812, Altos do Calhau, São Luís - MA.</li>
-              <li><strong>Referências:</strong> Em frente ao Cohafuma e próximo à Paróquia Nossa Senhora Aparecida da Foz do Rio Anil.</li>
-              <li><strong>Horário:</strong> Segunda a Sexta, das 08h às 20h • Sábado, das 08h às 13h.</li>
-              <li><strong>WhatsApp Oficial:</strong> (98) 98714-2545</li>
-            </ul>
+            <span class="unit-badge">Unidade Presencial • São Luís - MA</span>
+            <h3>CEPPSI Jardins</h3>
+            <p class="unit-address">Av. Jerônimo de Albuquerque, 25 — Condomínio Pátio Jardins, Sala 812, Altos do Calhau, São Luís - MA.</p>
+            <p class="unit-details">Consultórios climatizados, acessíveis e projetados para oferecer conforto e discrição. Também realizamos atendimentos online para todo o Brasil.</p>
             <div class="unit-actions">
-              <button class="btn-primary" onclick="openBookingModal()">Agendar na Unidade Jardins</button>
-              <a class="btn-outline" href="https://maps.google.com/?q=Av.+Jerônimo+de+Albuquerque,+25+-+Altos+do+Calhau,+São+Luís+-+MA" target="_blank" rel="noopener noreferrer">Abrir rota no Google Maps ↗</a>
+              <button class="btn-primary" onclick="openBooking('Atendimento Presencial - CEPPSI Jardins')">Agendar nesta unidade</button>
+              <a class="btn-outline-navy" href="https://maps.google.com/?q=Av.+Jer%C3%B4nimo+de+Albuquerque,+25+-+Altos+do+Calhau,+S%C3%A3o+Lu%C3%ADs+-+MA" target="_blank" rel="noopener noreferrer">Abrir no Google Maps</a>
             </div>
           </div>
 
           <div class="unit-map-box">
             <iframe
-              title="Mapa Unidade CEPPSI Jardins — Pátio Jardins, São Luís"
+              title="Localização CEPPSI Jardins - Pátio Jardins, Altos do Calhau, São Luís - MA"
               src="https://maps.google.com/maps?q=Av.%20Jer%C3%B4nimo%20de%20Albuquerque,%2025%20-%20Altos%20do%20Calhau,%20S%C3%A3o%20Lu%C3%ADs%20-%20MA&t=&z=16&ie=UTF8&iwloc=&output=embed"
               loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade">
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen>
             </iframe>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 6. BLOG & ARTIGOS -->
-    <section id="secao-blog" class="page-section" style="padding-top: 16px;">
+    <!-- 5. BLOG & ARTIGOS -->
+    <section id="secao-blog" class="blog-section">
       <div class="container">
-        <div class="section-head">
-          <span class="eyebrow"><span class="eyebrow-dot"></span> Blog &amp; Artigos</span>
+        <div class="section-header-center">
+          <div class="eyebrow-tag"><span class="eyebrow-dot"></span> BLOG &amp; ARTIGOS</div>
           <h2>Conteúdos sobre saúde mental e bem-estar</h2>
           <p>Reflexões escritas pelos nossos especialistas para apoiar seu autoconhecimento no dia a dia.</p>
         </div>
 
         <div class="blog-grid">
           <article class="blog-card">
-            <img class="blog-thumb" src="assets/blog/artigo-logoterapia.svg" alt="Logoterapia e sentido da vida" />
+            <div class="blog-thumb">
+              <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80" alt="Quando procurar ajuda psicológica">
+            </div>
             <div class="blog-body">
-              <div>
-                <span class="blog-tag">Logoterapia</span>
-                <h3>O sentido da vida como caminho para superar o vazio existencial</h3>
-                <p>Como a abordagem de Viktor Frankl auxilia na reconstrução de propósito diante das crises contemporâneas.</p>
-              </div>
-              <button class="blog-read-btn" onclick="openArticleModal('logoterapia')">Ler artigo completo →</button>
+              <span class="blog-cat">Psicologia Clínica</span>
+              <h3>Quando é o momento certo para iniciar a psicoterapia?</h3>
+              <p>Entenda os sinais emocionais que indicam a importância de buscar acolhimento profissional antes do esgotamento.</p>
+              <button class="blog-read-btn" onclick="openArticle(0)">Ler artigo completo →</button>
             </div>
           </article>
 
           <article class="blog-card">
-            <img class="blog-thumb" src="assets/blog/artigo-psicanalise.svg" alt="Psicanálise e escuta clínica" />
+            <div class="blog-thumb">
+              <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80" alt="Avaliação neuropsicológica na infância e vida adulta">
+            </div>
             <div class="blog-body">
-              <div>
-                <span class="blog-tag">Psicanálise</span>
-                <h3>Por que repetir padrões emocionais e como a terapia ajuda a elaborá-los</h3>
-                <p>Entenda o papel da escuta analítica na transformação de conflitos afetivos e profissionais.</p>
-              </div>
-              <button class="blog-read-btn" onclick="openArticleModal('psicanalise')">Ler artigo completo →</button>
+              <span class="blog-cat">Neuropsicologia</span>
+              <h3>Como funciona a Avaliação Neuropsicológica na prática</h3>
+              <p>Saiba como o mapeamento cognitivo auxilia diagnósticos precisos de atenção, memória e aprendizagem.</p>
+              <button class="blog-read-btn" onclick="openArticle(1)">Ler artigo completo →</button>
             </div>
           </article>
 
           <article class="blog-card">
-            <img class="blog-thumb" src="assets/blog/artigo-neuropsicologia.svg" alt="Avaliação Neuropsicológica" />
+            <div class="blog-thumb">
+              <img src="https://images.unsplash.com/photo-1516307365426-bea591f05011?auto=format&fit=crop&w=800&q=80" alt="Envelhecimento saudável e gerontologia">
+            </div>
             <div class="blog-body">
-              <div>
-                <span class="blog-tag">Neuropsicologia</span>
-                <h3>Quando buscar uma Avaliação Neuropsicológica na infância ou na vida adulta?</h3>
-                <p>Saiba como funciona o mapeamento de atenção, memória e funções executivas.</p>
-              </div>
-              <button class="blog-read-btn" onclick="openArticleModal('neuropsicologia')">Ler artigo completo →</button>
+              <span class="blog-cat">Gerontologia</span>
+              <h3>Envelhecimento ativo: autonomia emocional e cognitiva</h3>
+              <p>Cuidados integrados que fortalecem a qualidade de vida e o vínculo familiar na terceira idade.</p>
+              <button class="blog-read-btn" onclick="openArticle(2)">Ler artigo completo →</button>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- 7. CTA FINAL -->
-    <section class="final-cta-section">
+    <!-- 6. CTA FINAL -->
+    <section class="cta-final-section">
       <div class="container">
-        <div class="final-cta-box">
+        <div class="cta-final-box">
           <h2>Pronto para dar o primeiro passo?</h2>
-          <p>Fale diretamente com nossa equipe de acolhimento pelo WhatsApp e agende sua consulta na CEPPSI Jardins ou online.</p>
-          <button class="btn-primary" onclick="openBookingModal()">Agendar pelo WhatsApp (98) 98714-2545 →</button>
+          <p>Fale com nossa equipe pelo WhatsApp e agende sua consulta presencial no Pátio Jardins ou online.</p>
+          <button class="btn-primary" onclick="openBooking('Agendamento via CTA Final')">Agendar pelo WhatsApp →</button>
         </div>
       </div>
     </section>
 
-  </main>
+  </div>
 
-  <!-- ======================================================================
-       VIEW 2: PÁGINA SOBRE (HISTÓRIA, MISSÃO, VISÃO E 6 VALORES)
-       ====================================================================== -->
-  <section id="view-sobre" class="view-section">
-    <div class="subpage-hero">
+  <!-- ==================== VIEW 2: PÁGINA DEDICADA "EQUIPE" ==================== -->
+  <div id="view-equipe" class="view-section">
+    <section class="subpage-hero">
       <div class="container">
-        <span class="eyebrow" style="color:rgba(255,255,255,0.85);"><span class="eyebrow-dot"></span> Sobre a CEPPSI</span>
-        <h1>Mais de uma década dedicada ao cuidado humano em São Luís</h1>
-        <p>Conheça nossa história, os princípios éticos que guiam nossa clínica e o compromisso multidisciplinar com cada paciente.</p>
+        <div class="eyebrow-tag" style="color:rgba(255,255,255,0.85);"><span class="eyebrow-dot"></span> CORPO CLÍNICO</div>
+        <h1>Conheça nossos especialistas</h1>
+        <p>Uma equipe multidisciplinar reunida em São Luís para oferecer cuidado ético, científico e humanizado em cada fase da sua vida.</p>
       </div>
-    </div>
+    </section>
 
-    <div class="page-section">
+    <section class="section-block">
       <div class="container">
-        <div class="about-story-box">
-          <h2>Nossa História</h2>
-          <p>A <strong>CEPPSI</strong> nasceu em São Luís (MA) com o propósito de oferecer um espaço onde o rigor científico da Psicologia caminhasse lado a lado com o acolhimento genuíno e humano.</p>
-          <p>Ao longo de mais de 10 anos de atuação, consolidamos uma equipe multidisciplinar que integra Psicologia Clínica (Logoterapia e Psicanálise), Avaliação Neuropsicológica, Psicopedagogia, Nutrição e Gerontologia na Unidade Pátio Jardins, além de atender pacientes em todo o Brasil pela modalidade online.</p>
+        <div class="team-full-grid">
+
+          <!-- Profissional 1 -->
+          <article class="pro-full-card">
+            <div class="pro-full-photo">
+              <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=700&q=85" alt="Thiago Linhares">
+            </div>
+            <div class="pro-full-body">
+              <span class="pro-crp">CRP 22/1834 • Neuropsicologia</span>
+              <h3>Thiago Linhares</h3>
+              <p class="pro-bio">Neuropsicólogo e Mestrando em Psicologia. Atua com investigação cognitiva detalhada de memória, atenção e funções executivas em crianças, adolescentes, adultos e idosos.</p>
+              <div class="pro-tags">
+                <span class="pro-tag">Avaliação Neuropsicológica</span>
+                <span class="pro-tag">TDAH e TEA</span>
+                <span class="pro-tag">Reabilitação Cognitiva</span>
+              </div>
+              <button class="btn-primary" onclick="openBooking('Consulta com Thiago Linhares')">Agendar com Thiago →</button>
+            </div>
+          </article>
+
+          <!-- Profissional 2 -->
+          <article class="pro-full-card">
+            <div class="pro-full-photo">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=700&q=85" alt="Rogener Almeida">
+            </div>
+            <div class="pro-full-body">
+              <span class="pro-crp">Psicologia Clínica • Logoterapia</span>
+              <h3>Rogener Almeida</h3>
+              <p class="pro-bio">Psicóloga, Logoterapeuta e Doutoranda em Psicologia Social. Dedica-se à psicoterapia clínica com foco na busca de sentido, superação de crises existenciais e fortalecimento emocional.</p>
+              <div class="pro-tags">
+                <span class="pro-tag">Logoterapia</span>
+                <span class="pro-tag">Psicoterapia Adulto</span>
+                <span class="pro-tag">Ansiedade e Luto</span>
+              </div>
+              <button class="btn-primary" onclick="openBooking('Consulta com Rogener Almeida')">Agendar com Rogener →</button>
+            </div>
+          </article>
+
+          <!-- Profissional 3 -->
+          <article class="pro-full-card">
+            <div class="pro-full-photo">
+              <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=700&q=85" alt="Marcelo Torres">
+            </div>
+            <div class="pro-full-body">
+              <span class="pro-crp">Psicologia • Gerontologia</span>
+              <h3>Marcelo Torres</h3>
+              <p class="pro-bio">Psicólogo Clínico e Especialista em Gerontologia. Atua na promoção do envelhecimento saudável, preservação da autonomia emocional e orientação familiar na maturidade.</p>
+              <div class="pro-tags">
+                <span class="pro-tag">Gerontologia</span>
+                <span class="pro-tag">Saúde do Idoso</span>
+                <span class="pro-tag">Psicologia Clínica</span>
+              </div>
+              <button class="btn-primary" onclick="openBooking('Consulta com Marcelo Torres')">Agendar com Marcelo →</button>
+            </div>
+          </article>
+
+          <!-- Profissional 4 -->
+          <article class="pro-full-card">
+            <div class="pro-full-photo">
+              <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=700&q=85" alt="Alessandra Cristine Filgueiras Bates">
+            </div>
+            <div class="pro-full-body">
+              <span class="pro-crp">Psicologia • Psicopedagogia</span>
+              <h3>Alessandra Cristine Filgueiras Bates</h3>
+              <p class="pro-bio">Mestre em Psicologia pela UFMA e Especialista em Psicopedagogia. Acompanha processos de aprendizagem escolar, desenvolvimento cognitivo e orientação a pais e escolas.</p>
+              <div class="pro-tags">
+                <span class="pro-tag">Psicopedagogia</span>
+                <span class="pro-tag">Aprendizagem Escolar</span>
+                <span class="pro-tag">Infância e Adolescência</span>
+              </div>
+              <button class="btn-primary" onclick="openBooking('Consulta com Alessandra Cristine')">Agendar com Alessandra →</button>
+            </div>
+          </article>
+
+          <!-- Profissional 5 -->
+          <article class="pro-full-card">
+            <div class="pro-full-photo">
+              <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=700&q=85" alt="Lucilene Nogueira">
+            </div>
+            <div class="pro-full-body">
+              <span class="pro-crp">Psicologia • Saúde Mental</span>
+              <h3>Lucilene Nogueira</h3>
+              <p class="pro-bio">Psicóloga clínica com atuação voltada à Saúde Mental e Atenção Psicossocial, oferecendo escuta acolhedora para manejo de estresse, autoestima e transições de vida.</p>
+              <div class="pro-tags">
+                <span class="pro-tag">Saúde Mental</span>
+                <span class="pro-tag">Atenção Psicossocial</span>
+                <span class="pro-tag">Atendimento Online</span>
+              </div>
+              <button class="btn-primary" onclick="openBooking('Consulta com Lucilene Nogueira')">Agendar com Lucilene →</button>
+            </div>
+          </article>
+
+          <!-- Profissional 6 -->
+          <article class="pro-full-card">
+            <div class="pro-full-photo">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=700&q=85" alt="Juliana Vidal">
+            </div>
+            <div class="pro-full-body">
+              <span class="pro-crp">Psicologia • Psicopedagogia</span>
+              <h3>Juliana Vidal</h3>
+              <p class="pro-bio">Psicóloga Clínica e Psicopedagoga com atendimento infantojuvenil e adulto, integrando desenvolvimento emocional, habilidades socioemocionais e suporte educacional.</p>
+              <div class="pro-tags">
+                <span class="pro-tag">Clínica Infantojuvenil</span>
+                <span class="pro-tag">Psicopedagogia</span>
+                <span class="pro-tag">Psicoterapia Adulto</span>
+              </div>
+              <button class="btn-primary" onclick="openBooking('Consulta com Juliana Vidal')">Agendar com Juliana →</button>
+            </div>
+          </article>
+
+          <!-- Profissional 7 -->
+          <article class="pro-full-card">
+            <div class="pro-full-photo">
+              <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=700&q=85" alt="Camila Sousa">
+            </div>
+            <div class="pro-full-body">
+              <span class="pro-crp">Nutrição Clínica • Bem-Estar</span>
+              <h3>Camila Sousa</h3>
+              <p class="pro-bio">Nutricionista Clínica com abordagem humanizada e comportamental, promovendo saúde metabólica e equilíbrio alimentar sem restrições severas.</p>
+              <div class="pro-tags">
+                <span class="pro-tag">Nutrição Clínica</span>
+                <span class="pro-tag">Comportamento Alimentar</span>
+                <span class="pro-tag">Saúde Integral</span>
+              </div>
+              <button class="btn-primary" onclick="openBooking('Consulta com Camila Sousa')">Agendar com Camila →</button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==================== VIEW 3: PÁGINA "SOBRE" ==================== -->
+  <div id="view-sobre" class="view-section">
+    <section class="subpage-hero">
+      <div class="container">
+        <div class="eyebrow-tag" style="color:rgba(255,255,255,0.85);"><span class="eyebrow-dot"></span> NOSSA HISTÓRIA</div>
+        <h1>Sobre a CEPPSI</h1>
+        <p>Mais de uma década dedicada à promoção da saúde mental, cognitiva e nutricional em São Luís - MA.</p>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="container">
+        <div class="about-story-grid">
+          <div class="about-story-text">
+            <h2>Acolhimento humano aliado ao rigor científico</h2>
+            <p>Fundada em São Luís, a CEPPSI nasceu com o propósito de reunir especialistas de diferentes áreas da saúde para cuidar do ser humano de maneira integral, ética e individualizada.</p>
+            <p>Em nossa unidade no Pátio Jardins, nos Altos do Calhau, oferecemos um ambiente tranquilo, reservado e acessível, preparado para acolher crianças, adolescentes, adultos e idosos em cada etapa de suas trajetórias.</p>
+            <button class="btn-primary" onclick="openBooking('Primeira Consulta')">Agendar uma conversa →</button>
+          </div>
+          <div class="about-story-img">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=85" alt="Ambiente acolhedor CEPPSI Jardins">
+          </div>
         </div>
 
         <div class="mv-grid">
           <div class="mv-card">
             <h3>Nossa Missão</h3>
-            <p>Promover saúde mental, desenvolvimento cognitivo e bem-estar integral por meio de uma escuta ética, humanizada e baseada em evidências científicas.</p>
+            <p>Promover saúde emocional, desenvolvimento cognitivo e bem-estar integral por meio de atendimento ético, humanizado e baseado em evidências.</p>
           </div>
           <div class="mv-card">
             <h3>Nossa Visão</h3>
-            <p>Ser referência no Maranhão em atendimento psicológico e multidisciplinar, reconhecida pela excelência técnica, acolhimento e impacto positivo na vida das pessoas.</p>
+            <p>Ser referência no Maranhão em cuidado multidisciplinar em Psicologia, Neuropsicologia, Nutrição e Gerontologia, reconhecida pela excelência e proximidade humana.</p>
           </div>
         </div>
 
-        <div class="section-head">
-          <span class="eyebrow"><span class="eyebrow-dot"></span> Princípios</span>
+        <div class="section-header-center">
+          <div class="eyebrow-tag"><span class="eyebrow-dot"></span> PRINCÍPIOS</div>
           <h2>Nossos 6 Valores Institucionais</h2>
         </div>
 
         <div class="values-grid">
           <div class="value-card">
-            <h3>1. Ética e Sigilo</h3>
-            <p>Respeito inegociável à confidencialidade e aos códigos profissionais de cada especialidade.</p>
+            <h4>01. Ética e Sigilo</h4>
+            <p>Respeito absoluto à confidencialidade e à dignidade de cada paciente atendido.</p>
           </div>
           <div class="value-card">
-            <h3>2. Acolhimento Humanizado</h3>
-            <p>Cada história é única e merece ser ouvida sem julgamentos, com empatia e presença real.</p>
+            <h4>02. Escuta Humanizada</h4>
+            <p>Acolhimento livre de julgamentos, valorizando a singularidade de cada história.</p>
           </div>
           <div class="value-card">
-            <h3>3. Rigor Científico</h3>
-            <p>Atualização constante e uso de métodos validados na clínica, na neuropsicologia e na saúde integral.</p>
+            <h4>03. Rigor Científico</h4>
+            <p>Práticas fundamentadas na ciência psicológica, neuropsicológica e nutricional.</p>
           </div>
           <div class="value-card">
-            <h3>4. Visão Integral</h3>
-            <p>Compreendemos o ser humano em suas dimensões emocional, cognitiva, biológica e social.</p>
+            <h4>04. Visão Integral</h4>
+            <p>Integração entre mente, corpo, aprendizagem e relações ao longo de toda a vida.</p>
           </div>
           <div class="value-card">
-            <h3>5. Compromisso com o Paciente</h3>
-            <p>Clareza nas etapas do tratamento, pontualidade e acompanhamento próximo em toda a jornada.</p>
+            <h4>05. Compromisso Social</h4>
+            <p>Contribuição ativa para a conscientização e promoção da saúde mental em São Luís.</p>
           </div>
           <div class="value-card">
-            <h3>6. Respeito à Singularidade</h3>
-            <p>Valorizamos a dignidade, o tempo e a autonomia de cada criança, adulto ou idoso atendido.</p>
+            <h4>06. Atualização Contínua</h4>
+            <p>Aperfeiçoamento constante da nossa equipe clínica em pesquisas e metodologias.</p>
           </div>
         </div>
-
-        <div class="centered-cta" style="margin-top: 56px;">
-          <button class="btn-primary" onclick="openBookingModal()">Agendar uma consulta conosco →</button>
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 
-  <!-- ======================================================================
-       VIEW 3: PÁGINA COMPLETA DA EQUIPE (7 PROFISSIONAIS)
-       ====================================================================== -->
-  <section id="view-equipe" class="view-section">
-    <div class="subpage-hero">
-      <div class="container">
-        <span class="eyebrow" style="color:rgba(255,255,255,0.85);"><span class="eyebrow-dot"></span> Corpo Clínico</span>
-        <h1>Conheça nossos especialistas</h1>
-        <p>Profissionais experientes e comprometidos com o cuidado ético na CEPPSI Jardins e no atendimento online.</p>
-      </div>
-    </div>
-
-    <div class="page-section">
-      <div class="container">
-        <div class="team-full-grid">
-          <article class="team-full-card">
-            <img class="team-full-photo" src="assets/equipe/thiago-linhares.svg" alt="Thiago Linhares" />
-            <div class="team-full-body">
-              <div>
-                <span class="team-crp">Psicologia Clínica</span>
-                <h3>Thiago Linhares</h3>
-                <p class="team-role">Psicólogo Clínico</p>
-                <p class="team-bio">Atendimento psicoterapêutico voltado a jovens e adultos, com foco em ansiedade, sentido de vida e desenvolvimento emocional.</p>
-              </div>
-              <button class="btn-primary" onclick="openBookingModal('Psicologia Clínica', 'Thiago Linhares')">Agendar com Thiago</button>
-            </div>
-          </article>
-
-          <article class="team-full-card">
-            <img class="team-full-photo" src="assets/equipe/rogener-almeida.svg" alt="Rogener Almeida" />
-            <div class="team-full-body">
-              <div>
-                <span class="team-crp">Psicologia &amp; Logoterapia</span>
-                <h3>Rogener Almeida</h3>
-                <p class="team-role">Psicólogo Clínico</p>
-                <p class="team-bio">Atuação clínica fundamentada na Logoterapia e Análise Existencial, auxiliando pacientes na superação de crises e construção de propósito.</p>
-              </div>
-              <button class="btn-primary" onclick="openBookingModal('Psicologia Clínica', 'Rogener Almeida')">Agendar com Rogener</button>
-            </div>
-          </article>
-
-          <article class="team-full-card">
-            <img class="team-full-photo" src="assets/equipe/marcelo-torres.svg" alt="Marcelo Torres" />
-            <div class="team-full-body">
-              <div>
-                <span class="team-crp">Psicologia &amp; Psicanálise</span>
-                <h3>Marcelo Torres</h3>
-                <p class="team-role">Psicólogo Clínico</p>
-                <p class="team-bio">Escuta clínica orientada pela Psicanálise para elaboração de conflitos afetivos, angústias e processos de autoconhecimento.</p>
-              </div>
-              <button class="btn-primary" onclick="openBookingModal('Psicologia Clínica', 'Marcelo Torres')">Agendar com Marcelo</button>
-            </div>
-          </article>
-
-          <article class="team-full-card">
-            <img class="team-full-photo" src="assets/equipe/alessandra-bates.svg" alt="Alessandra Cristine Filgueiras Bates" />
-            <div class="team-full-body">
-              <div>
-                <span class="team-crp">Neuropsicologia</span>
-                <h3>Alessandra Cristine Filgueiras Bates</h3>
-                <p class="team-role">Avaliação Neuropsicológica</p>
-                <p class="team-bio">Especialista em avaliação cognitiva de crianças, adolescentes, adultos e idosos, com elaboração de laudos diagnósticos detalhados.</p>
-              </div>
-              <button class="btn-primary" onclick="openBookingModal('Avaliação Neuropsicológica', 'Alessandra Cristine Filgueiras Bates')">Agendar com Alessandra</button>
-            </div>
-          </article>
-
-          <article class="team-full-card">
-            <img class="team-full-photo" src="assets/equipe/lucilene-nogueira.svg" alt="Lucilene Nogueira" />
-            <div class="team-full-body">
-              <div>
-                <span class="team-crp">Psicopedagogia</span>
-                <h3>Lucilene Nogueira</h3>
-                <p class="team-role">Psicopedagoga Clínica</p>
-                <p class="team-bio">Intervenção e acompanhamento nos processos de aprendizagem, alfabetização, atenção escolar e desenvolvimento infantil.</p>
-              </div>
-              <button class="btn-primary" onclick="openBookingModal('Psicopedagogia', 'Lucilene Nogueira')">Agendar com Lucilene</button>
-            </div>
-          </article>
-
-          <article class="team-full-card">
-            <img class="team-full-photo" src="assets/equipe/juliana-vidal.svg" alt="Juliana Vidal" />
-            <div class="team-full-body">
-              <div>
-                <span class="team-crp">Nutrição Clínica</span>
-                <h3>Juliana Vidal</h3>
-                <p class="team-role">Nutricionista</p>
-                <p class="team-bio">Acompanhamento nutricional humanizado com foco em comportamento alimentar, saúde metabólica e qualidade de vida.</p>
-              </div>
-              <button class="btn-primary" onclick="openBookingModal('Nutrição Clínica', 'Juliana Vidal')">Agendar com Juliana</button>
-            </div>
-          </article>
-
-          <article class="team-full-card">
-            <img class="team-full-photo" src="assets/equipe/nucleo-gerontologia.svg" alt="Atendimento em Gerontologia" />
-            <div class="team-full-body">
-              <div>
-                <span class="team-crp">Gerontologia</span>
-                <h3>Núcleo de Gerontologia</h3>
-                <p class="team-role">Saúde Integral do Idoso</p>
-                <p class="team-bio">Suporte especializado ao envelhecimento ativo, estimulação cognitiva e orientação aos familiares e cuidadores.</p>
-              </div>
-              <button class="btn-primary" onclick="openBookingModal('Gerontologia')">Agendar Gerontologia</button>
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======================================================================
-       RODAPÉ INSTITUCIONAL
-       ====================================================================== -->
-  <footer class="site-footer">
+  <!-- FOOTER -->
+  <footer>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
-            <svg width="36" height="30" viewBox="0 0 84 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M26 8C14 8 7 16 7 28C7 33 5 36 3 39C2 40.5 3 42 5 42H8V50C8 54 11 56 15 56H22V66C26 63 31 58 31 50V14C31 10 29 8 26 8Z" fill="#E86C24"/>
-              <path d="M58 8C70 8 77 16 77 28C77 33 79 36 81 39C82 40.5 81 42 79 42H76V50C76 54 73 56 69 56H62V66C58 63 53 58 53 50V14C53 10 55 8 58 8Z" fill="#FFFFFF"/>
-              <path d="M42 12V64M33 64H51M36 12H48M27 22C27 34 33 41 42 41C51 41 57 34 57 22" stroke="#E86C24" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <div style="margin-bottom:16px;">
+            <svg width="160" height="36" viewBox="0 0 230 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 7C11.5 7 7 11.8 7 18.2C7 22.8 9.2 26.2 11.5 29.4C13.2 31.8 14 34.4 14 38V43H22V14C22 10.1 20.4 7 18 7Z" fill="#E86C24"/>
+              <path d="M36 7C42.5 7 47 11.8 47 18.2C47 22.8 44.8 26.2 42.5 29.4C40.8 31.8 40 34.4 40 38V43H32V14C32 10.1 33.6 7 36 7Z" fill="#FFFFFF"/>
+              <path d="M27 8V43M20 16C20 21.5 23 24.5 27 24.5C31 24.5 34 21.5 34 16" stroke="#E86C24" stroke-width="3.2" stroke-linecap="round"/>
+              <text x="58" y="34" fill="#FFFFFF" font-family="'Sumana', serif" font-weight="700" font-size="29" letter-spacing="1.5">CEPPSI</text>
             </svg>
-            <span style="font-family:'Sumana',serif; font-weight:700; font-size:1.45rem; color:#FFFFFF;">CEPPSI</span>
           </div>
-          <p style="font-size:0.9rem; line-height:1.6;">Clínica multidisciplinar em São Luís dedicada à saúde mental, desenvolvimento humano e cuidado integral.</p>
+          <p>Centro de Psicologia, Nutrição e Gerontologia. Cuidado multidisciplinar presencial em São Luís e online.</p>
         </div>
 
         <div class="footer-col">
           <h4>Navegação</h4>
-          <ul class="footer-links">
-            <li><button onclick="showView('home')">Início</button></li>
-            <li><button onclick="showView('sobre')">Sobre a CEPPSI</button></li>
-            <li><button onclick="showView('home', 'secao-servicos')">Nossos Serviços</button></li>
-            <li><button onclick="showView('equipe')">Nossa Equipe</button></li>
-            <li><button onclick="showView('home', 'secao-blog')">Blog &amp; Artigos</button></li>
-          </ul>
+          <a onclick="navigateHome('topo')">Início</a>
+          <a onclick="switchView('sobre')">Sobre a Clínica</a>
+          <a onclick="navigateHome('secao-servicos')">Nossos Serviços</a>
+          <a onclick="switchView('equipe')">Corpo Clínico</a>
+          <a onclick="navigateHome('secao-blog')">Blog &amp; Artigos</a>
         </div>
 
         <div class="footer-col">
-          <h4>Especialidades</h4>
-          <ul class="footer-links">
-            <li><button onclick="openBookingModal('Psicologia Clínica')">Psicologia Clínica</button></li>
-            <li><button onclick="openBookingModal('Avaliação Neuropsicológica')">Avaliação Neuropsicológica</button></li>
-            <li><button onclick="openBookingModal('Psicopedagogia')">Psicopedagogia</button></li>
-            <li><button onclick="openBookingModal('Nutrição Clínica')">Nutrição Clínica</button></li>
-            <li><button onclick="openBookingModal('Gerontologia')">Gerontologia</button></li>
-          </ul>
+          <h4>Unidade CEPPSI Jardins</h4>
+          <p>Av. Jerônimo de Albuquerque, 25<br>Condomínio Pátio Jardins, Sala 812<br>Altos do Calhau, São Luís - MA</p>
+          <p>Atendimento Online para todo o Brasil</p>
         </div>
 
         <div class="footer-col">
-          <h4>CEPPSI Jardins</h4>
-          <p style="font-size:0.9rem; margin-bottom:10px;">Av. Jerônimo de Albuquerque, 25 — Pátio Jardins, Sala 812, Altos do Calhau, São Luís - MA.</p>
-          <p style="font-size:0.9rem; color:#FFFFFF; font-weight:600;">WhatsApp: (98) 98714-2545</p>
+          <h4>Agendamento</h4>
+          <a onclick="openBooking('Agendamento via Rodapé')">WhatsApp: (98) 98714-2545</a>
+          <p>Segunda a Sexta: 08h às 20h<br>Sábado: 08h às 13h</p>
         </div>
       </div>
 
       <div class="footer-bottom">
         <span>© 2026 CEPPSI — Todos os direitos reservados.</span>
-        <span>São Luís • Maranhão</span>
+        <span>São Luís — Maranhão</span>
       </div>
     </div>
   </footer>
 
-  <!-- ======================================================================
-       MODAL DE AGENDAMENTO WHATSAPP
-       ====================================================================== -->
-  <div class="modal-backdrop" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
-    <div class="modal-box">
-      <button class="modal-close" onclick="closeBookingModal()" aria-label="Fechar">✕</button>
-      <span class="eyebrow"><span class="eyebrow-dot"></span> Agendamento Rápido</span>
-      <h3 id="bookingModalTitle" style="font-size:1.85rem; margin-bottom:8px;">Agendar sua consulta</h3>
-      <p style="font-size:0.92rem; color:var(--muted); margin-bottom:22px;">Preencha os dados abaixo para iniciar seu atendimento diretamente pelo WhatsApp oficial da CEPPSI.</p>
+  <!-- MODAL DE AGENDAMENTO WHATSAPP -->
+  <div id="bookingModal" class="modal-overlay" onclick="if(event.target===this) closeBooking()">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeBooking()" aria-label="Fechar">×</button>
+      <div class="eyebrow-tag"><span class="eyebrow-dot"></span> AGENDAMENTO RÁPIDO</div>
+      <h3 style="font-size:1.85rem; margin-bottom:8px;">Agendar sua consulta</h3>
+      <p style="color:var(--muted); font-size:0.94rem; margin-bottom:22px;">Preencha os dados abaixo para iniciar seu atendimento diretamente pelo WhatsApp oficial da CEPPSI.</p>
 
-      <form onsubmit="handleBookingSubmit(event)">
+      <form onsubmit="submitWhatsApp(event)">
         <div class="form-group">
-          <label for="bookingName">Seu nome completo</label>
-          <input type="text" id="bookingName" placeholder="Ex.: Maria Clara Silva" required />
+          <label for="bk-name">Seu nome</label>
+          <input type="text" id="bk-name" placeholder="Digite seu nome completo" required />
         </div>
 
         <div class="form-group">
-          <label for="bookingSpecialty">Especialidade desejada</label>
-          <select id="bookingSpecialty" required>
+          <label for="bk-service">Especialidade ou Profissional</label>
+          <select id="bk-service">
             <option value="Psicologia Clínica">Psicologia Clínica</option>
             <option value="Avaliação Neuropsicológica">Avaliação Neuropsicológica</option>
             <option value="Psicopedagogia">Psicopedagogia</option>
             <option value="Nutrição Clínica">Nutrição Clínica</option>
             <option value="Gerontologia">Gerontologia</option>
+            <option value="Primeira Consulta">Primeira Consulta / Orientação</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label for="bookingModality">Modalidade de atendimento</label>
-          <select id="bookingModality" required>
-            <option value="Presencial — CEPPSI Jardins (Altos do Calhau)">Presencial — CEPPSI Jardins (Altos do Calhau)</option>
-            <option value="Atendimento Online">Atendimento Online</option>
+          <label for="bk-modality">Modalidade preferida</label>
+          <select id="bk-modality">
+            <option value="Presencial — CEPPSI Jardins (Pátio Jardins)">Presencial — CEPPSI Jardins (Pátio Jardins)</option>
+            <option value="Atendimento Online (Videochamada)">Atendimento Online (Videochamada)</option>
           </select>
-        </div>
-
-        <div class="form-group">
-          <label for="bookingProfessional">Preferência de profissional (opcional)</label>
-          <input type="text" id="bookingProfessional" placeholder="Deixe em branco para nossa equipe indicar" />
         </div>
 
         <button type="submit" class="btn-primary" style="width:100%; margin-top:8px;">Continuar no WhatsApp →</button>
@@ -623,23 +1779,143 @@
     </div>
   </div>
 
-  <!-- ======================================================================
-       MODAL DE LEITURA DE ARTIGO DO BLOG
-       ====================================================================== -->
-  <div class="modal-backdrop" id="articleModal" role="dialog" aria-modal="true" aria-labelledby="articleModalTitle">
-    <div class="modal-box article-modal">
-      <button class="modal-close" onclick="closeArticleModal()" aria-label="Fechar artigo">✕</button>
-      <span class="blog-tag" id="articleModalTag">Artigo</span>
-      <h3 id="articleModalTitle" style="font-size:1.95rem; margin-bottom:8px;">Título do Artigo</h3>
-      <p id="articleModalDate" style="font-size:0.85rem; color:var(--muted); margin-bottom:24px;">Equipe CEPPSI</p>
-      <div id="articleModalBody" style="font-size:1rem; color:var(--text); line-height:1.75;"></div>
-      <div style="margin-top:28px; padding-top:20px; border-top:1px solid var(--border-light); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
-        <span style="font-size:0.9rem; color:var(--muted);">Gostaria de conversar com um especialista?</span>
-        <button class="btn-primary" onclick="closeArticleModal(); openBookingModal();">Agendar consulta</button>
-      </div>
+  <!-- MODAL DE LEITURA DE ARTIGO DO BLOG -->
+  <div id="articleModal" class="modal-overlay" onclick="if(event.target===this) closeArticle()">
+    <div class="modal-card article-wide">
+      <button class="modal-close" onclick="closeArticle()" aria-label="Fechar artigo">×</button>
+      <div id="art-cat" class="eyebrow-tag"></div>
+      <h3 id="art-title" style="font-size:1.95rem; margin-bottom:18px;"></h3>
+      <div id="art-body" style="color:var(--muted); font-size:1rem; line-height:1.75; display:flex; flex-direction:column; gap:14px; margin-bottom:28px;"></div>
+      <button class="btn-primary" onclick="closeArticle(); openBooking('Consulta após leitura do Blog');">Agendar consulta com especialista →</button>
     </div>
   </div>
 
-  <script src="js/script.js"></script>
+  <script>
+    const blogArticles = [
+      {
+        cat: 'Psicologia Clínica',
+        title: 'Quando é o momento certo para iniciar a psicoterapia?',
+        paragraphs: [
+          'Muitas pessoas acreditam que a psicoterapia deve ser buscada apenas em momentos de crise aguda. No entanto, o acompanhamento psicológico é também um espaço preventivo de autoconhecimento, organização emocional e fortalecimento de vínculos.',
+          'Sinais como cansaço mental frequente, dificuldade para dormir, ansiedade persistente, mudanças bruscas de humor ou sensação de estagnação profissional e afetiva indicam que conversar com um especialista pode fazer toda a diferença.',
+          'Na CEPPSI, oferecemos escuta ética, sigilosa e personalizada, tanto presencialmente no Pátio Jardins quanto no formato online.'
+        ]
+      },
+      {
+        cat: 'Neuropsicologia',
+        title: 'Como funciona a Avaliação Neuropsicológica na prática',
+        paragraphs: [
+          'A Avaliação Neuropsicológica investiga de maneira estruturada e científica o funcionamento de habilidades cognitivas como memória, atenção, linguagem, raciocínio lógico e funções executivas.',
+          'Por meio de entrevistas clínicas e instrumentos padronizados, o neuropsicólogo identifica potencialidades e dificuldades, auxiliando diagnósticos diferenciais como TDAH, Transtorno do Espectro Autista (TEA), transtornos de aprendizagem ou alterações cognitivas na maturidade.',
+          'Ao final do processo, o paciente e a família recebem um laudo completo com orientações práticas para o dia a dia e para o plano terapêutico.'
+        ]
+      },
+      {
+        cat: 'Gerontologia',
+        title: 'Envelhecimento ativo: autonomia emocional e cognitiva',
+        paragraphs: [
+          'Envelhecer com qualidade envolve muito mais do que cuidados físicos: passa pela preservação da autonomia, pela estimulação cognitiva e pela manutenção de laços afetivos significativos.',
+          'O acompanhamento em Gerontologia e Psicologia Clínica ajuda o idoso e seus familiares a atravessarem transições como aposentadoria, mudanças na rotina e prevenção de declínios de memória com serenidade e dignidade.'
+        ]
+      }
+    ];
+
+    function setActiveNav(id) {
+      document.querySelectorAll('.nav-menu a').forEach(a => a.classList.remove('active'));
+      const el = document.getElementById('nav-' + id);
+      if (el) el.classList.add('active');
+    }
+
+    function switchView(viewName) {
+      document.querySelectorAll('.view-section').forEach(sec => sec.classList.remove('active'));
+      const target = document.getElementById('view-' + viewName);
+      if (target) target.classList.add('active');
+      setActiveNav(viewName);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function navigateHome(sectionId) {
+      document.querySelectorAll('.view-section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById('view-home').classList.add('active');
+
+      const navMap = {
+        'topo': 'home',
+        'secao-servicos': 'servicos',
+        'secao-equipe-home': 'equipe',
+        'secao-blog': 'blog',
+        'secao-unidade': 'home'
+      };
+      setActiveNav(navMap[sectionId] || 'home');
+
+      setTimeout(() => {
+        if (sectionId === 'topo') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          const target = document.getElementById(sectionId);
+          if (target) {
+            const topPos = target.getBoundingClientRect().top + window.scrollY - 96;
+            window.scrollTo({ top: topPos, behavior: 'smooth' });
+          }
+        }
+      }, 30);
+    }
+
+    function toggleMobileMenu() {
+      document.getElementById('mobileDrawer').classList.toggle('open');
+    }
+
+    function closeMobileMenu() {
+      document.getElementById('mobileDrawer').classList.remove('open');
+    }
+
+    function openBooking(preselect) {
+      const modal = document.getElementById('bookingModal');
+      const select = document.getElementById('bk-service');
+      if (preselect) {
+        let found = false;
+        for (let i = 0; i < select.options.length; i++) {
+          if (select.options[i].value === preselect) {
+            select.selectedIndex = i;
+            found = true;
+            break;
+          }
+        }
+        if (!found) {
+          const opt = new Option(preselect, preselect, true, true);
+          select.add(opt);
+        }
+      }
+      modal.classList.add('open');
+    }
+
+    function closeBooking() {
+      document.getElementById('bookingModal').classList.remove('open');
+    }
+
+    function submitWhatsApp(e) {
+      e.preventDefault();
+      const name = document.getElementById('bk-name').value.trim();
+      const service = document.getElementById('bk-service').value;
+      const modality = document.getElementById('bk-modality').value;
+      const msg = encodeURIComponent(
+        `Olá! Meu nome é ${name}. Gostaria de agendar um atendimento de *${service}* na modalidade *${modality}*.`
+      );
+      window.open(`https://wa.me/5598987142545?text=${msg}`, '_blank', 'noopener,noreferrer');
+      closeBooking();
+    }
+
+    function openArticle(idx) {
+      const art = blogArticles[idx];
+      if (!art) return;
+      document.getElementById('art-cat').innerHTML = `<span class="eyebrow-dot"></span> ${art.cat}`;
+      document.getElementById('art-title').textContent = art.title;
+      document.getElementById('art-body').innerHTML = art.paragraphs.map(p => `<p>${p}</p>`).join('');
+      document.getElementById('articleModal').classList.add('open');
+    }
+
+    function closeArticle() {
+      document.getElementById('articleModal').classList.remove('open');
+    }
+  </script>
 </body>
 </html>
