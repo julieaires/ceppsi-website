@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CEPPSI — Psicologia, Nutrição e Gerontologia em São Luís</title>
+  <meta name="description" content="Centro de Psicologia, Nutrição e Gerontologia em São Luís - MA. Unidades Jardins e Lagoa." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- NAVBAR CONVENCIONAL -->
+  <header>
+    <div class="container nav-inner">
+      <a class="brand" onclick="switchPage('home')">
+        <svg class="brand-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path d="M32 6C26 6 22 10 22 16V34C22 39.5 17.5 44 12 44V52C22 52 30 44 30 34V16C30 14.9 30.9 14 32 14V6Z" fill="#E86C24"/>
+          <path d="M32 6C38 6 42 10 42 16V34C42 39.5 46.5 44 52 44V52C42 52 34 44 34 34V16C34 14.9 33.1 14 32 14V6Z" fill="#13294B"/>
+          <rect x="29" y="14" width="6" height="44" rx="3" fill="#24477A"/>
+        </svg>
+        <div class="brand-text">
+          <strong>CEPPSI</strong>
+          <span>São Luís • Maranhão</span>
+        </div>
+      </a>
+
+      <div class="nav-right">
+        <nav class="nav-links">
+          <a onclick="switchPage('home')" id="nav-home" class="active">Início</a>
+          <a onclick="switchPage('profissionais')" id="nav-profissionais">Profissionais</a>
+          <a onclick="switchPage('unidades')" id="nav-unidades">Unidades</a>
+          <a onclick="switchPage('duvidas')" id="nav-duvidas">Dúvidas</a>
+          <a onclick="switchPage('contato')" id="nav-contato">Fale Conosco</a>
+        </nav>
+
+        <button class="btn-primary" onclick="openBooking()">Agendar consulta</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== PÁGINA: INÍCIO ==================== -->
+  <main id="page-home" class="page-view active">
+    
+    <!-- HERO -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-header">
+          <h1>Cuidado psicológico e integral que <span class="highlight-orange">transforma&nbsp;vidas</span></h1>
+          <p>Acolhimento humano, escuta ética e uma equipe multidisciplinar preparada para cuidar de você e da sua família em todas as fases da&nbsp;vida.</p>
+          <div class="hero-actions">
+            <button class="btn-primary" onclick="openBooking()">Agendar minha consulta</button>
+            <button class="btn-outline" onclick="switchPage('profissionais')">Conhecer especialistas</button>
+          </div>
+        </div>
+
+        <div class="hero-visual-wrap">
+          <div class="hero-photo">
+            <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=1800&q=85" alt="Atendimento acolhedor na CEPPSI">
+          </div>
+
+          <div class="hero-metrics-card">
+            <div class="metric-item">
+              <strong>+10 anos</strong>
+              <span>De experiência clínica</span>
+            </div>
+            <div class="metric-item">
+              <strong>2 Unidades</strong>
+              <span>Jardins e Lagoa da Jansen</span>
+            </div>
+            <div class="metric-item">
+              <strong>7 Especialistas</strong>
+              <span>Atendimento presencial e online</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="specialties-strip">
+          <div class="spec-pill" onclick="openBooking('Psicologia Clínica')">Psicologia Clínica</div>
+          <div class="spec-pill" onclick="openBooking('Avaliação Neuropsicológica')">Neuropsicologia</div>
+          <div class="spec-pill" onclick="openBooking('Psicopedagogia')">Psicopedagogia</div>
+          <div class="spec-pill" onclick="openBooking('Nutrição')">Nutrição</div>
+          <div class="spec-pill" onclick="openBooking('Gerontologia')">Gerontologia</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOCO INSTITUCIONAL EM AZUL PROFUNDO (#13294B) -->
+    <section class="navy-band">
+      <div class="container">
+        <div class="band-top-grid">
+          <h2>Seu espaço de acolhimento para saúde emocional e&nbsp;cognitiva</h2>
+          <div class="band-top-right">
+            <p>Unimos psicologia, nutrição e gerontologia em um ambiente tranquilo e reservado para acompanhar cada etapa da sua&nbsp;jornada.</p>
+            <a class="link-arrow" onclick="switchPage('profissionais')">Conhecer nossa equipe →</a>
+          </div>
+        </div>
+
+        <div class="band-content-grid">
+          <div class="band-photo">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1100&q=85" alt="Consultório CEPPSI São Luís">
+          </div>
+
+          <div class="band-panel">
+            <div>
+              <div class="panel-stat">
+                <strong>100%</strong>
+                <span>Atendimento humanizado e&nbsp;sigiloso</span>
+              </div>
+              <p class="panel-desc">Escolha a área ideal para o seu momento ou converse com nossa recepção para receber orientação&nbsp;personalizada.</p>
+
+              <div class="panel-list">
+                <div class="panel-list-item" onclick="openBooking('Psicologia Clínica')">
+                  <span>Psicologia Clínica e Logoterapia</span>
+                  <span>→</span>
+                </div>
+                <div class="panel-list-item" onclick="openBooking('Avaliação Neuropsicológica')">
+                  <span>Avaliação Neuropsicológica Completa</span>
+                  <span>→</span>
+                </div>
+                <div class="panel-list-item" onclick="openBooking('Psicopedagogia e Nutrição')">
+                  <span>Psicopedagogia, Nutrição e Gerontologia</span>
+                  <span>→</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel-footer-row">
+              <div>
+                <strong>Agendamento rápido pelo WhatsApp</strong>
+                <span>Resposta ágil para horários no Jardins, Lagoa ou Online</span>
+              </div>
+              <button class="circle-btn" onclick="openBooking()" aria-label="Agendar">→</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UNIDADES -->
+    <section class="block">
+      <div class="container">
+        <div class="section-head">
+          <h2>Duas unidades pensadas para facilitar sua&nbsp;rotina</h2>
+          <p>Consultórios climatizados, acessíveis e bem localizados em São&nbsp;Luís.</p>
+        </div>
+
+        <div class="units-grid">
+          <div class="unit-card">
+            <div class="unit-photo">
+              <span class="unit-badge">Altos do Calhau</span>
+              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80" alt="CEPPSI Jardins">
+            </div>
+            <div class="unit-body">
+              <h3>CEPPSI Jardins</h3>
+              <p>Av. Jerônimo de Albuquerque, 25 — Pátio Jardins, Sala&nbsp;812.</p>
+              <div class="unit-actions">
+                <button class="btn-primary" onclick="openBooking('', 'Jardins')">Agendar nesta unidade</button>
+                <a href="https://maps.google.com/?q=Patio+Jardins+Sao+Luis+MA" target="_blank" rel="noopener noreferrer" class="btn-outline">Ver no mapa</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="unit-card">
+            <div class="unit-photo">
+              <span class="unit-badge">Jardim Renascença</span>
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80" alt="CEPPSI Lagoa">
+            </div>
+            <div class="unit-body">
+              <h3>CEPPSI Lagoa</h3>
+              <p>Rua das Andirobas, 448 — Executive Lake, Sala&nbsp;502.</p>
+              <div class="unit-actions">
+                <button class="btn-primary" onclick="openBooking('', 'Lagoa')">Agendar nesta unidade</button>
+                <a href="https://maps.google.com/?q=Executive+Lake+Sao+Luis+MA" target="_blank" rel="noopener noreferrer" class="btn-outline">Ver no mapa</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <div class="container">
+      <div class="cta-navy-box">
+        <h2>Pronto para dar o primeiro&nbsp;passo?</h2>
+        <p>Nossa recepção atende diretamente pelo WhatsApp para tirar dúvidas e encontrar o melhor horário para&nbsp;você.</p>
+        <button class="btn-primary" onclick="openBooking()">Conversar pelo WhatsApp</button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ==================== PÁGINA: PROFISSIONAIS ==================== -->
+  <main id="page-profissionais" class="page-view">
+    <div class="container">
+      <div class="subpage-hero">
+        <h1>Nossa Equipe</h1>
+        <p>Profissionais qualificados com escuta ética e acolhedora em São&nbsp;Luís.</p>
+      </div>
+
+      <div class="team-grid">
+        <div class="pro-card">
+          <div class="pro-avatar">
+            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=700&q=80" alt="Thiago Linhares">
+          </div>
+          <div class="pro-info">
+            <h3>Thiago Linhares</h3>
+            <p>Especialista em Neuropsicologia (CRP 22/1834) e Mestrando em&nbsp;Psicologia.</p>
+            <button class="btn-outline" onclick="openBooking('Consulta com Thiago Linhares')">Agendar horário</button>
+          </div>
+        </div>
+
+        <div class="pro-card">
+          <div class="pro-avatar">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=700&q=80" alt="Rogener Almeida">
+          </div>
+          <div class="pro-info">
+            <h3>Rogener Almeida</h3>
+            <p>Psicóloga, Logoterapeuta e Doutoranda em Psicologia&nbsp;Social.</p>
+            <button class="btn-outline" onclick="openBooking('Consulta com Rogener Almeida')">Agendar horário</button>
+          </div>
+        </div>
+
+        <div class="pro-card">
+          <div class="pro-avatar">
+            <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=700&q=80" alt="Marcelo Torres">
+          </div>
+          <div class="pro-info">
+            <h3>Marcelo Torres</h3>
+            <p>Psicólogo Clínico e Especialista em&nbsp;Gerontologia.</p>
+            <button class="btn-outline" onclick="openBooking('Consulta com Marcelo Torres')">Agendar horário</button>
+          </div>
+        </div>
+
+        <div class="pro-card">
+          <div class="pro-avatar">
+            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=700&q=80" alt="Alessandra Cristine">
+          </div>
+          <div class="pro-info">
+            <h3>Alessandra Cristine Bates</h3>
+            <p>Mestre em Psicologia (UFMA) e Especialista em&nbsp;Psicopedagogia.</p>
+            <button class="btn-outline" onclick="openBooking('Consulta com Alessandra Cristine')">Agendar horário</button>
+          </div>
+        </div>
+
+        <div class="pro-card">
+          <div class="pro-avatar">
+            <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=700&q=80" alt="Lucilene Nogueira">
+          </div>
+          <div class="pro-info">
+            <h3>Lucilene Nogueira</h3>
+            <p>Psicóloga clínica com foco em Saúde Mental e Atenção&nbsp;Psicossocial.</p>
+            <button class="btn-outline" onclick="openBooking('Consulta com Lucilene Nogueira')">Agendar horário</button>
+          </div>
+        </div>
+
+        <div class="pro-card">
+          <div class="pro-avatar">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=700&q=80" alt="Juliana Vidal">
+          </div>
+          <div class="pro-info">
+            <h3>Juliana Vidal</h3>
+            <p>Psicóloga Clínica e Psicopedagoga para crianças, adolescentes e&nbsp;adultos.</p>
+            <button class="btn-outline" onclick="openBooking('Consulta com Juliana Vidal')">Agendar horário</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== PÁGINA: UNIDADES ==================== -->
+  <main id="page-unidades" class="page-view">
+    <div class="container" style="padding-bottom: 96px;">
+      <div class="subpage-hero">
+        <h1>Nossas Unidades</h1>
+        <p>Estrutura confortável, estacionamento fácil e localização estratégica em São&nbsp;Luís.</p>
+      </div>
+
+      <div class="units-grid">
+        <div class="unit-card">
+          <div class="unit-photo">
+            <span class="unit-badge">Unidade Jardins</span>
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80" alt="CEPPSI Jardins">
+          </div>
+          <div class="unit-body">
+            <h3>CEPPSI Jardins</h3>
+            <p>Av. Jerônimo de Albuquerque, 25 — Condomínio Pátio Jardins, Sala 812, Altos do Calhau (em frente ao&nbsp;Cohafuma).</p>
+            <div class="unit-actions">
+              <button class="btn-primary" onclick="openBooking('', 'Jardins')">Agendar no Jardins</button>
+              <a href="https://maps.google.com/?q=Patio+Jardins+Sao+Luis+MA" target="_blank" rel="noopener noreferrer" class="btn-outline">Abrir Google Maps</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="unit-card">
+          <div class="unit-photo">
+            <span class="unit-badge">Unidade Lagoa</span>
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80" alt="CEPPSI Lagoa">
+          </div>
+          <div class="unit-body">
+            <h3>CEPPSI Lagoa</h3>
+            <p>Rua das Andirobas, 448 — Edifício Executive Lake, Sala 502, Jardim&nbsp;Renascença.</p>
+            <div class="unit-actions">
+              <button class="btn-primary" onclick="openBooking('', 'Lagoa')">Agendar na Lagoa</button>
+              <a href="https://maps.google.com/?q=Executive+Lake+Sao+Luis+MA" target="_blank" rel="noopener noreferrer" class="btn-outline">Abrir Google Maps</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== PÁGINA: DÚVIDAS ==================== -->
+  <main id="page-duvidas" class="page-view">
+    <div class="container">
+      <div class="subpage-hero">
+        <h1>Dúvidas Frequentes</h1>
+        <p>Respostas diretas para ajudar você antes da primeira&nbsp;consulta.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item open">
+          <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Como funciona o agendamento? <span>+</span></button>
+          <div class="faq-a">Você clica em "Agendar consulta", escolhe a especialidade e a unidade desejada (Jardins, Lagoa ou Online) e fala diretamente com nossa equipe no WhatsApp (98)&nbsp;98714-2545.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Vocês realizam atendimento online? <span>+</span></button>
+          <div class="faq-a">Sim. Oferecemos sessões de psicologia clínica e nutrição por videochamada, com o mesmo sigilo e acolhimento do atendimento&nbsp;presencial.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Para que serve a Avaliação Neuropsicológica? <span>+</span></button>
+          <div class="faq-a">É uma investigação detalhada da memória, atenção, linguagem e raciocínio para auxiliar diagnósticos em crianças, adultos e idosos e orientar tratamentos&nbsp;assertivos.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Qual a diferença entre Geriatria e Gerontologia? <span>+</span></button>
+          <div class="faq-a">A geriatria é a especialidade médica, enquanto a gerontologia estuda e promove o envelhecimento saudável sob os aspectos psicológicos, cognitivos e&nbsp;sociais.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== PÁGINA: FALE CONOSCO ==================== -->
+  <main id="page-contato" class="page-view">
+    <div class="container" style="padding-bottom: 96px;">
+      <div class="subpage-hero">
+        <h1>Fale Conosco</h1>
+        <p>Estamos à disposição para responder suas dúvidas e agendar seu&nbsp;atendimento.</p>
+      </div>
+
+      <div class="contact-card">
+        <form onsubmit="submitContact(event)">
+          <div class="field">
+            <label>Nome completo</label>
+            <input type="text" id="ct-name" placeholder="Seu nome" required>
+          </div>
+          <div class="field">
+            <label>Telefone / WhatsApp</label>
+            <input type="tel" id="ct-phone" placeholder="(98) 99999-9999" required>
+          </div>
+          <div class="field">
+            <label>Mensagem</label>
+            <textarea id="ct-msg" rows="4" placeholder="Como podemos ajudar?" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;">Enviar pelo WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <strong>CEPPSI</strong>
+          <p>Centro de Psicologia, Nutrição e Gerontologia em São Luís —&nbsp;MA.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Unidades</h4>
+          <p>Pátio Jardins, Sala 812 — Altos do&nbsp;Calhau</p>
+          <p>Executive Lake, Sala 502 — Jardim&nbsp;Renascença</p>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <a href="https://wa.me/5598987142545" target="_blank" rel="noopener noreferrer">WhatsApp: (98) 98714-2545</a>
+          <a href="mailto:contato@ceppsima.com.br">contato@ceppsima.com.br</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 CEPPSI — Todos os direitos reservados.</span>
+        <span>São Luís • Maranhão</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL DE AGENDAMENTO RÁPIDO -->
+  <div class="modal-backdrop" id="bookingModal" onclick="if(event.target===this) closeBooking()">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeBooking()" aria-label="Fechar">×</button>
+      <h3>Agendar consulta</h3>
+      <p>Preencha abaixo e continuaremos pelo&nbsp;WhatsApp.</p>
+      <form onsubmit="submitWhatsApp(event)">
+        <div class="field">
+          <label>Seu nome</label>
+          <input type="text" id="bk-name" placeholder="Como gostaria de ser chamado?" required>
+        </div>
+        <div class="field">
+          <label>Especialidade ou Profissional</label>
+          <select id="bk-service">
+            <option value="Psicologia Clínica">Psicologia Clínica</option>
+            <option value="Avaliação Neuropsicológica">Avaliação Neuropsicológica</option>
+            <option value="Psicopedagogia">Psicopedagogia</option>
+            <option value="Nutrição">Nutrição</option>
+            <option value="Gerontologia">Gerontologia</option>
+            <option value="Ainda não sei, preciso de orientação">Ainda não sei, preciso de orientação</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Unidade de preferência</label>
+          <select id="bk-unit">
+            <option value="CEPPSI Jardins (Altos do Calhau)">CEPPSI Jardins (Altos do Calhau)</option>
+            <option value="CEPPSI Lagoa (Renascença)">CEPPSI Lagoa (Renascença)</option>
+            <option value="Atendimento Online">Atendimento Online</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%; margin-top:8px;">Continuar no WhatsApp</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
